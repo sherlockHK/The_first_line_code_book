@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by kwhu on 8/25/15.
+ * Created by kwhu on 8/26/15.
  */
-public class SecondActivity extends Activity {
+public class DialogActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_layout);
 
-
+        setContentView(R.layout.dialog_layout);
     }
 }
