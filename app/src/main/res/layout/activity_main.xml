@@ -3,15 +3,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/start_normal_activity"
+    <TextView
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start NormalActivity" />
+        android:gravity="center"
+        android:text="this is a textView"
+        android:textColor="#00ff00"
+        android:textSize="24sp" />
 
     <Button
-        android:id="@+id/start_dialog_activity"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start DialogActivity" />
+        android:text="button" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="type something here"
+        android:maxLines="2" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/icon" />
+
 </LinearLayout>

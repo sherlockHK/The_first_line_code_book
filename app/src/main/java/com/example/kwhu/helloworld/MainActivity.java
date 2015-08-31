@@ -1,18 +1,23 @@
 package com.example.kwhu.helloworld;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 /**
  * Created by kwhu on 8/26/15.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     public static final String TAG = "MainActivity";
+    private Button button;
+    private EditText editText;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,66 +31,42 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_main);
 
-        Button normalButton = (Button) findViewById(R.id.start_normal_activity);
-        Button dialogButton = (Button) findViewById(R.id.start_dialog_activity);
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(this);
 
-        normalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NormalActivity.class);
-                startActivity(intent);
-            }
-        });
+        editText = (EditText) findViewById(R.id.edit_text);
 
-        dialogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DialogActivity.class);
-                startActivity(intent);
-            }
-        });
+        imageView = (ImageView) findViewById(R.id.image_view);
+
+
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart");
-    }
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button:
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("this is a dialog");
+                dialog.setMessage("something important");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-    }
+                    }
+                });
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause");
-    }
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop");
-    }
+                    }
+                });
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        String templateData = "baabbaaabbab";
-        outState.putString("key",templateData);
+                dialog.show();
+                break;
+            default:
+                break;
+        }
     }
 }
