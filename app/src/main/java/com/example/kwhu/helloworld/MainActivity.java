@@ -18,6 +18,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (savedInstanceState != null){
+            String key = savedInstanceState.getString("key");
+            Log.d("MainActivity",key);
+        }
+
         Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_main);
 
@@ -77,4 +82,10 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onRestart");
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String templateData = "baabbaaabbab";
+        outState.putString("key",templateData);
+    }
 }
