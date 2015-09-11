@@ -2,9 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <widget.TitleLayout
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </widget.TitleLayout>.
+        android:layout_height="match_parent">
+    </ListView>
 
 </LinearLayout>
