@@ -30,7 +30,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         View view;
         if (convertView == null){
-            view = LayoutInflater.from(getContext()).inflate(resourceId,parent);
+            view = LayoutInflater.from(getContext()).inflate(resourceId,null);
         }else {
             view = convertView;
         }
